@@ -4,6 +4,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
+import warnings
+
+# Suppress TensorFlow and Keras deprecation warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+
 
 
 df = pd.read_csv('restructured_2023_season_data.csv') 
