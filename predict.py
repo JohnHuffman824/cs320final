@@ -6,7 +6,16 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 
 
-df = pd.read_csv('restructured_2023_season_data.csv') 
+df1 = pd.read_csv('restructured_2019_season_data.csv') 
+df2 = pd.read_csv('restructured_2020_season_data.csv') 
+df3 = pd.read_csv('restructured_2021_season_data.csv') 
+df4 = pd.read_csv('restructured_2022_season_data.csv') 
+
+
+df = pd.concat([df1, df2, df3, df4], axis=0)
+
+# print(df.shape)
+
 
 
 X = df[['Home Team Total Yards', 'Away Team Total Yards', 'Home Team Turnovers', 'Away Team Turnovers']]
@@ -30,16 +39,36 @@ model.compile(optimizer='adam',
 history = model.fit(X_train_scaled, y_train, validation_split=0.2, epochs=50, batch_size=32, verbose=1)
 test_loss, test_acc = model.evaluate(X_test_scaled, y_test, verbose=2)
 print(f'Test accuracy: {test_acc}')
-# Example: New game data
-new_game = [[300, 250, 1, 2]]  # Example features: Home Yard, Away Yard, Home Turnover, Away Turnover
-
-# new_game = [[240, 413, 3, 4]]  # Example features: Home Yard, Away Yard, Home Turnover, Away Turnover
 
 
-# Preprocess (scale) the new game data
+new_game = [[221,281,0,3]]  # Example features: Home Yard, Away Yard, Home Turnover, Away Turnover
+
+# Scale the new game data
 new_game_scaled = scaler.transform(new_game)
 
 # Predict
 prediction = model.predict(new_game_scaled)
 predicted_winner = 'Home Team' if prediction >= 0.5 else 'Away Team'
 print(f'Predicted Winner: {predicted_winner}, Probability: {prediction[0][0]}')
+
+
+def predict_and_evaluate(dataset_path, model, scaler):
+    # Load the dataset
+    df_new = pd.read_csv(dataset_path)
+    
+    # Select the features and target variable
+    X_new = df_new[['Home Team Total Yards', 'Away Team Total Yards', 'Home Team Turnovers', 'Away Team Turnovers']]
+    y_new = df_new['Winner']
+    
+    # Scale the features
+    X_new_scaled = scaler.transform(X_new)
+    
+    # Evaluate the model
+    loss, accuracy = model.evaluate(X_new_scaled, y_new, verbose=2)
+    
+    print(f'Accuracy on new dataset: {accuracy}')
+    return accuracy
+
+# Most current season
+dataset_path = 'restructured_2023_season_data.csv'  # Update this path as necessary
+predict_and_evaluate(dataset_path, model, scaler)
