@@ -1,4 +1,4 @@
-Week,Day,Date,Time,Winner/tie,,Loser/tie,,PtsW,PtsL,YdsW,TOW,YdsL,TOL
+Week,Day,Date,Time,Winner/tie,Home/Away,Loser/tie,,PtsW,PtsL,YdsW,TOW,YdsL,TOL
 1,Thu,2020-09-10,8:20PM,Kansas City Chiefs,,Houston Texans,boxscore,34,20,369,0,360,1
 1,Sun,2020-09-13,1:00PM,Seattle Seahawks,@,Atlanta Falcons,boxscore,38,25,383,0,506,2
 1,Sun,2020-09-13,1:00PM,Buffalo Bills,,New York Jets,boxscore,27,17,404,2,254,2
