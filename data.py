@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 def rawSeasonDataToRestructuredSeasonData(input_csv, output_csv):
 
     # Read the CSV file
@@ -11,7 +10,7 @@ def rawSeasonDataToRestructuredSeasonData(input_csv, output_csv):
     # Process the data
     df['Home Team Name'] = df.apply(lambda row: row['Loser/tie'] if row['Home/Away'] == '@' else row['Winner/tie'], axis=1)
     df['Away Team Name'] = df.apply(lambda row: row['Loser/tie'] if row['Home/Away'] != '@' else row['Winner/tie'], axis=1)
-    df['Winner'] = df.apply(lambda row: 0 if row['Home/Away'] == '@' else 1, axis=1)
+    df['Winner'] = df.apply(lambda row: 0 if row['Home/Away'] == '@' else 1, axis=1) # 1 means home team won, 0 means away team won
     df['Home Team Total Yards'] = df.apply(lambda row: row['YdsL'] if row['Home/Away'] == '@' else row['YdsW'], axis=1)
     df['Away Team Total Yards'] = df.apply(lambda row: row['YdsW'] if row['Home/Away'] == '@' else row['YdsL'], axis=1)
     df['Home Team Turnovers'] = df.apply(lambda row: row['TOL'] if row['Home/Away'] == '@' else row['TOW'], axis=1)

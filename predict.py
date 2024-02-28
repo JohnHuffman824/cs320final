@@ -28,13 +28,19 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 model = Sequential([
-    Dense(64, activation='relu', input_shape=(X_train_scaled.shape[1],)),
+    Dense(4, activation='relu', input_shape=(X_train_scaled.shape[1],)),
+    Dense(32, activation='relu'),
+    Dense(64, activation='relu'),
     Dense(32, activation='relu'),
     Dense(1, activation='sigmoid')
 ])
 
+# Added the following two neural networks and our accuracy on the new dataset didn't change much. 
+# Dense(64, activation='relu'),
+# Dense(32, activation='relu'),
+
 model.compile(optimizer='adam',
-              loss='binary_crossentropy',
+              loss='mean_squared_error',
               metrics=['accuracy'])
 history = model.fit(X_train_scaled, y_train, validation_split=0.2, epochs=50, batch_size=32, verbose=1)
 test_loss, test_acc = model.evaluate(X_test_scaled, y_test, verbose=2)
@@ -72,3 +78,12 @@ def predict_and_evaluate(dataset_path, model, scaler):
 # Most current season
 dataset_path = 'restructured_2023_season_data.csv'  # Update this path as necessary
 predict_and_evaluate(dataset_path, model, scaler)
+
+
+
+# Minimum viable product - Takes 4 input features ('Home Team Total Yards', 'Away Team Total Yards', 'Home Team Turnovers', 'Away Team Turnovers') 
+# into our keras neural network (with 5 layers: 4-relu, 32-relu, 64-relu, 32-relu, 1-sigmoid)
+# and outputs a value between 0 and 1 which represents likelihood it thinks that the home team will win
+
+
+# Achievable Goal - Add more features to our data (pass vs rush yards, interceptions vs fumbles, # explosive plays had (both rushing and receiving), # explosive plays given up, sacks, # all-pro players/ pro-bowl players)
