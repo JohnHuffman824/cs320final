@@ -1,33 +1,33 @@
-ID, Team Name, Abbreviation
-crd, Arizona Cardinals, ARI
-atl, Atlanta Falcons, ATL
-rav, Baltimore Ravens, BAL
-buf, Buffalo Bills, BUF
-car, Carolina Panthers, CAR
-chi, Chicago Bears, CHI
-cin, Cincinatti Bengals, CIN
-cle, Cleveland Browns, CLE
-dal, Dallas Cowboys, DAL
-den, Denver Broncos, DEN
-det, Detroit Lions, DET
-gnb, Green Bay Packers, GNB
-htx, Houston Texans, HOU
-clt, Indianapolis Colts, IND
-jax, Jacksonville Jaguars, JAX
-kan, Kansas City Chiefs, KAN
-rai, Las Vegas Raiders, LVR
-sdg, Los Angeles Chargers, LAC
-ram, Los Angeles Rams, LAR
-mia, Miami Dolphins, MIA
-min, Minnesota Vikings, MIN
-nwe, New England Patriots, NWE
-nor, New Orleans Saints, NOR
-nyg, New York Giants, NYG
-nyj, New York Jets, NYJ
-phi, Philadelphia Eagles, PHI
-pit, Pittsburgh Steelers, PIT
-sfo, San Francisco 49ers, SFO
-sea, Seattle Seahawks, SEA
-tam, Tampa Bay Buccaneers, TAM
-oti, Tennessee Titans, TEN
-was, Washington Commanders, WAS
+ID, Team Name, Abbreviation, Alternate Abbreviation
+crd, Arizona Cardinals, ARI,
+atl, Atlanta Falcons, ATL,
+rav, Baltimore Ravens, BAL,
+buf, Buffalo Bills, BUF,
+car, Carolina Panthers, CAR,
+chi, Chicago Bears, CHI,
+cin, Cincinatti Bengals, CIN,
+cle, Cleveland Browns, CLE,
+dal, Dallas Cowboys, DAL,
+den, Denver Broncos, DEN,
+det, Detroit Lions, DET,
+gnb, Green Bay Packers, GNB,
+htx, Houston Texans, HOU,
+clt, Indianapolis Colts, IND,
+jax, Jacksonville Jaguars, JAX,
+kan, Kansas City Chiefs, KAN,
+rai, Las Vegas Raiders, LVR, OAK
+sdg, Los Angeles Chargers, LAC, SDG
+ram, Los Angeles Rams, LAR, STL
+mia, Miami Dolphins, MIA,
+min, Minnesota Vikings, MIN,
+nwe, New England Patriots, NWE,
+nor, New Orleans Saints, NOR,
+nyg, New York Giants, NYG,
+nyj, New York Jets, NYJ,
+phi, Philadelphia Eagles, PHI,
+pit, Pittsburgh Steelers, PIT,
+sfo, San Francisco 49ers, SFO,
+sea, Seattle Seahawks, SEA,
+tam, Tampa Bay Buccaneers, TAM,
+oti, Tennessee Titans, TEN,
+was, Washington Commanders, WAS,
