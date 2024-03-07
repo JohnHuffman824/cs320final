@@ -1,0 +1,2 @@
+Think I grabbed the turnovers wrong from the data, may want to recollect. Can try and get beautiful soup to work for this 
+(data2.py) but may not be able to get to work
