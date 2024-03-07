@@ -1,2 +1,5 @@
 Think I grabbed the turnovers wrong from the data, may want to recollect. Can try and get beautiful soup to work for this 
 (data2.py) but may not be able to get to work
+
+html for second round of grabbing team data
+https://stathead.com/football/team-game-finder.cgi?request=1&order_by_asc=1&order_by=date&timeframe=seasons&year_min=2014&year_max=2023&ccomp%5B1%5D=gt&cval%5B1%5D=0&cstat%5B1%5D=turnovers&ccomp%5B2%5D=gt&cval%5B2%5D=0&cstat%5B2%5D=turnovers_opp&ccomp%5B3%5D=gt&cval%5B3%5D=0&cstat%5B3%5D=penalties&ccomp%5B4%5D=gt&cval%5B4%5D=0&cstat%5B4%5D=penalties_yds&ccomp%5B5%5D=gt&cval%5B5%5D=0&cstat%5B5%5D=penalties_opp&ccomp%5B6%5D=gt&cval%5B6%5D=0&cstat%5B6%5D=penalties_yds_opp&ccomp%5B7%5D=gt&cval%5B7%5D=0&cstat%5B7%5D=fgm&ccomp%5B8%5D=gt&cval%5B8%5D=0&cstat%5B8%5D=fgm_opp&ccomp%5B9%5D=gt&cval%5B9%5D=0&cstat%5B9%5D=third_down_pct&ccomp%5B10%5D=gt&cval%5B10%5D=0&cstat%5B10%5D=third_down_pct_opp&team_id=crd
