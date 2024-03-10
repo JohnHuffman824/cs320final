@@ -3,7 +3,21 @@ import pandas as pd
 
 def combine_team_data(folder_path):
     # Initialize combined DataFrame
-    # Game Order,Team,Date,Passing Yards,Passings TD,Rushing Yards,Rushing TD,Turnovers,Opponent Passing Yards,Opponent Rushing Yards,Time of Possession,Day of Week,Game Number,Week,Home/Away,Opponent,Result,Passing Completions,Passing Attempts,Passing Incompletions,Passing Completion Percentage,Passing TD,Interceptions,TD Percentage per Pass,Interception Percentage per Pass,Passer Rating,Times Sacked,Sack Yards,Sack Percentage,Yards per Attempt,Net Yards per Attempt,Adjusted Yards per Attempt,Adjusted Net Yards per Attempt,Yards per Completion,Opponent Rushing Attempts,Opponent Rushing Yards per Attempt,Opponent Rushing TD,Opponent Pass Completions,Opponent Pass Attempts,Opponent Completion Percentage,Opponent Passing TD,Opponent Times Sacked,Opponent Sack Yards,Opponent Interceptions,Opponent Passer Rating,Rushing Attempts,Rushing Yards per Attempt,Total Yardage,Offense Number of Plays,Yards per Offensive Play,Defense Number of Plays,Yards Allowed per Defensive Play,Turnovers Lost,Total Time,Opponent Turnovers,Penalties,Penalty Yards,Opponent Penalties,Opponent Penalty Yards,Field Goals Made,Opponent Field Goals Made,3rd Down %,Oppoenent 3rd Down %,1st Downs,1st Downs by Rush,1st Downs by Pass,1st Downs by Pen,3rd Down Attempts,3rd Down Conversions,3rd Down Conversion %,4th Down Attempts,4th Down Conversions,4th Down Conversion %,Opponent Total Yards,Opponent Turnovers.1,Penalties.1,Penalty Yards.1,Opponent Penalties.1,Opponent Penalty Yards.1,Combined Penalties,Combined Penalty Yards,Opponent TD,Opponent XPA,Opponent XPM,Opponent Field Goals Attempted,Opponent Field Goals Made.1,Opponent Safeties,Total Yards,Offensive Plays,Yards per Play,Defensive Plays,Defensive Yards per Play,Turnovers.1,Time,Opponent 1st Downs,Opponent 1st Downs by Rush,Opponent 1st Downs by Pass,Opponent 1st Downs by Penalty,Opponent 3rd Down Attempts,Opponent 3rd Down Conversions,Opponent 3rd Down Conversion %,Opponent 4th Down Attempts,Opponent 4th Down Conversions,Opponent 4th Down Conversion %,Total TD,XPA,XPM,Field Goals Attempted,Field Goals Made.1,2PA,2PM,Safeties
+    # Time of Possession,
+    # Result,Passing Completions,Passing Incompletions,
+    # Interceptions,TD Percentage per Pass,Interception Percentage per Pass,Passer Rating,Sack Yards,Sack Percentage,Yards per Attempt,
+    # Net Yards per Attempt,Adjusted Yards per Attempt,Adjusted Net Yards per Attempt,Yards per Completion,
+    # Opponent Pass Completions,Opponent Sack Yards,
+    # Opponent Interceptions,Opponent Passer Rating,Total Yardage,Offense Number of Plays,Yards per Offensive Play,
+    # Turnovers Lost,Total Time,Penalty Yards,Defensive plays, Yards Allowed per Defensive Play
+    # Opponent Penalty Yards,1st Downs by Rush,1st Downs by Pass,1st Downs by Pen,
+    # 3rd Down Conversions,4th Down Conversions,
+    # Combined Penalties,Combined Penalty Yards,Opponent XPA,Opponent XPM,
+    # Opponent Field Goals Made.1,Opponent Safeties,Total Yards,Offensive Plays,Yards per Play,Defensive Plays,Defensive Yards per Play,
+    # Time,Opponent 1st Downs by Rush,Opponent 1st Downs by Pass,Opponent 1st Downs by Penalty,
+    # Opponent 3rd Down Conversions,Opponent 4th Down Conversions,
+    # Total TD,XPA,XPM,Field Goals Attempted,Field Goals Made.1,2PA,2PM,Safeties
+
     # UPDATE THIS TO COMBINE WITH NEW FEATURES
     combined_data = pd.DataFrame(columns=['Date', 'Week', 'Home Team Name', 'Away Team Name',
                                           'Winner', 
@@ -12,7 +26,21 @@ def combine_team_data(folder_path):
                                           'Home Team Passing TD', 'Away Team Passing TD',
                                           'Home Team Rushing Yards', 'Away Team Rushing Yards',
                                           'Home Team Rushing TD', 'Away Team Rushing TD',
-                                          'Home Team Turnovers Lost', 'Away Team Turnovers Lost'
+                                          'Home Team Turnovers Lost', 'Away Team Turnovers Lost',
+                                          'Home Team Passing Attempts', 'Away Team Passing Attempts',
+                                          'Home Team Passing Completion Percentage', 'Away Team Passing Completion Percentage',
+                                          'Home Team Times Sacked', 'Away Team Times Sacked',
+                                          'Home Team Rushing Attempts', 'Away Team Rushing Attempts',
+                                          'Home Team Rushing Yards per Attempt', 'Away Team Rushing Yards per Attempt',
+                                          'Home Team Penalties', 'Away Team Penalties',
+                                          'Home Team Field Goals Attempted', 'Away Team Field Goals Attempted',
+                                          'Home Team Field Goals Made', 'Away Team Field Goals Made',
+                                          'Home Team 3rd Down Attempts', 'Away Team 3rd Down Attempts',
+                                          'Home Team 3rd Down %', 'Away Team 3rd Down %',
+                                          'Home Team 4th Down Attempts', 'Away Team 4th Down Attempts',
+                                          'Home Team 4th Down Conversion %', 'Away Team 4th Down Conversion %',
+                                          'Home Team 1st Downs', 'Away Team 1st Downs'
+                                          #   'Home Team Defense Number of Plays', 'Away Team Defense Number of Plays',
                                           ])
 
     # Iterate through each file in the folder
@@ -31,7 +59,7 @@ def combine_team_data(folder_path):
                     elif game['Result'].startswith('L'):
                         winner = 1
                     else: 
-                        winner = 'Tie'
+                        winner = 1
 
                     game_data = {
                     'Date': game['Date'],
@@ -50,7 +78,33 @@ def combine_team_data(folder_path):
                     'Home Team Rushing TD': game['Opponent Rushing TD'],
                     'Away Team Rushing TD': game['Rushing TD'],
                     'Home Team Turnovers Lost': game['Opponent Turnovers'],
-                    'Away Team Turnovers Lost': game['Turnovers']
+                    'Away Team Turnovers Lost': game['Turnovers'],
+                    'Home Team Passing Attempts': game['Opponent Pass Attempts'],
+                    'Away Team Passing Attempts': game['Passing Attempts'],
+                    'Home Team Passing Completion Percentage': game['Opponent Completion Percentage'], 
+                    'Away Team Passing Completion Percentage': game['Passing Completion Percentage'],
+                    'Home Team Times Sacked': game['Opponent Times Sacked'],
+                    'Away Team Times Sacked': game['Times Sacked'],
+                    'Home Team Rushing Attempts': game['Opponent Rushing Attempts'],
+                    'Away Team Rushing Attempts': game['Rushing Attempts'],
+                    'Home Team Rushing Yards per Attempt': game['Opponent Rushing Yards per Attempt'],
+                    'Away Team Rushing Yards per Attempt': round(game['Rushing Yards'] / game['Rushing Attempts'], 2),
+                    'Home Team Penalties': game['Opponent Penalties'],
+                    'Away Team Penalties': game['Penalties'],
+                    'Home Team Field Goals Attempted': game['Opponent Field Goals Attempted'],
+                    'Away Team Field Goals Attempted': game['Field Goals Attempted'],
+                    'Home Team Field Goals Made': game['Opponent Field Goals Made'],
+                    'Away Team Field Goals Made': game['Field Goals Made'],
+                    'Home Team 3rd Down Attempts': game['Opponent 3rd Down Attempts'],
+                    'Away Team 3rd Down Attempts': game['3rd Down Attempts'],
+                    'Home Team 3rd Down %': game['Opponent 3rd Down Conversion %'],
+                    'Away Team 3rd Down %': game['3rd Down %'],
+                    'Home Team 4th Down Attempts': game['Opponent 4th Down Attempts'],
+                    'Away Team 4th Down Attempts': game['4th Down Attempts'],
+                    'Home Team 4th Down Conversion %': game['Opponent 4th Down Conversion %'],
+                    'Away Team 4th Down Conversion %': game['4th Down Conversion %'],
+                    'Home Team 1st Downs': game['Opponent 1st Downs'],
+                    'Away Team 1st Downs':game['1st Downs']
                     }
                 else:
                     # Determine winner based on 'Result' column and whether the team is home or away
@@ -59,12 +113,13 @@ def combine_team_data(folder_path):
                     elif game['Result'].startswith('L'):
                         winner = 1
                     else:
-                        winner = 'Tie'
+                        winner = 0
                     game_data = {
                     'Date': game['Date'],
                     'Week': game['Week'],
                     'Home Team Name': game['Team'],
                     'Away Team Name': game['Opponent'],
+                    'Winner': winner,
                     'Home Team Total Yards': game['Rushing Yards'] + game['Passing Yards'],
                     'Away Team Total Yards': game['Opponent Rushing Yards'] + game['Opponent Passing Yards'],
                     'Home Team Passing Yards': game['Passing Yards'],
@@ -77,7 +132,32 @@ def combine_team_data(folder_path):
                     'Away Team Rushing TD': game['Opponent Rushing TD'],
                     'Home Team Turnovers Lost': game['Turnovers'],
                     'Away Team Turnovers Lost': game['Opponent Turnovers'],
-                    'Winner': winner
+                    'Home Team Passing Attempts': game['Passing Attempts'],
+                    'Away Team Passing Attempts': game['Opponent Pass Attempts'],
+                    'Home Team Passing Completion Percentage': game['Passing Completion Percentage'], 
+                    'Away Team Passing Completion Percentage': game['Opponent Completion Percentage'],
+                    'Home Team Times Sacked': game['Times Sacked'],
+                    'Away Team Times Sacked': game['Opponent Times Sacked'],
+                    'Home Team Rushing Attempts': game['Rushing Attempts'],
+                    'Away Team Rushing Attempts': game['Opponent Rushing Attempts'],
+                    'Home Team Rushing Yards per Attempt': round(game['Rushing Yards'] / game['Rushing Attempts'], 2),
+                    'Away Team Rushing Yards per Attempt': game['Opponent Rushing Yards per Attempt'],
+                    'Home Team Penalties': game['Penalties'],
+                    'Away Team Penalties': game['Opponent Penalties'],
+                    'Home Team Field Goals Attempted': game['Field Goals Attempted'],
+                    'Away Team Field Goals Attempted': game['Opponent Field Goals Attempted'],
+                    'Home Team Field Goals Made': game['Field Goals Made'],
+                    'Away Team Field Goals Made': game['Opponent Field Goals Made'],
+                    'Home Team 3rd Down Attempts': game['3rd Down Attempts'],
+                    'Away Team 3rd Down Attempts': game['Opponent 3rd Down Attempts'],
+                    'Home Team 3rd Down %': game['3rd Down %'],
+                    'Away Team 3rd Down %': game['Opponent 3rd Down Conversion %'],
+                    'Home Team 4th Down Attempts': game['4th Down Attempts'],
+                    'Away Team 4th Down Attempts': game['Opponent 4th Down Attempts'],
+                    'Home Team 4th Down Conversion %': game['4th Down Conversion %'],
+                    'Away Team 4th Down Conversion %': game['Opponent 4th Down Conversion %'],
+                    'Home Team 1st Downs': game['1st Downs'],
+                    'Away Team 1st Downs':game['Opponent 1st Downs']
                     }
 
 
@@ -89,8 +169,8 @@ def combine_team_data(folder_path):
 def main():
     folder_path = './2014-2023teamData'
     combined_data = combine_team_data(folder_path)
-    combined_data.to_csv('combined_team_data.csv', index=False)
-    print("Combined data saved to combined_team_data.csv")
+    combined_data.to_csv('combined_team_data_newest.csv', index=False)
+    print("Combined data saved to combined_team_data_newest.csv")
 
 if __name__ == "__main__":
     main()
