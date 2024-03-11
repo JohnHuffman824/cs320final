@@ -52,10 +52,16 @@ def combine_team_data(folder_path):
             # Process each game in the team's CSV file
             for index, game in team_data.iterrows():
                 # If team in question is away
+                if game['4th Down Conversion %'] == None:
+                    game['4th Down Conversion %'] = 1
+                if game['Opponent 4th Down Conversion %'] == None:
+                    game['Opponent 4th Down Conversion %'] = 1
+
                 if game['Home/Away'] == '@':
-                    # Determine winner based on 'Result' column and whether the team is home or away
+                    # 0 if away team won
                     if game['Result'].startswith('W'):
                         winner = 0
+                    # 1 if home team won
                     elif game['Result'].startswith('L'):
                         winner = 1
                     else: 
@@ -107,13 +113,14 @@ def combine_team_data(folder_path):
                     'Away Team 1st Downs':game['1st Downs']
                     }
                 else:
-                    # Determine winner based on 'Result' column and whether the team is home or away
+                    # 1 if home team won
                     if game['Result'].startswith('W'):
-                        winner = 0
-                    elif game['Result'].startswith('L'):
                         winner = 1
-                    else:
+                    # 0 if away team won
+                    elif game['Result'].startswith('L'):
                         winner = 0
+                    else:
+                        winner = 1
                     game_data = {
                     'Date': game['Date'],
                     'Week': game['Week'],
