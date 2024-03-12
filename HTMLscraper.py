@@ -19,10 +19,7 @@ for index, row in team_data.iterrows():
     response = requests.get(url)
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'html.parser')
-        
-        # Extract table data
-        # Extract table data
-        # Extract table data
+       
         table = soup.find('table')
         if table:
             data = []
