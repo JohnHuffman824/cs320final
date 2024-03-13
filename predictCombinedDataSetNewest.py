@@ -28,7 +28,7 @@ X = df[[
     'Home Team 3rd Down Attempts', 'Away Team 3rd Down Attempts',
     'Home Team 3rd Down %', 'Away Team 3rd Down %',
     'Home Team 4th Down Attempts', 'Away Team 4th Down Attempts',
-    # 'Home Team 4th Down Conversion %', 'Away Team 4th Down Conversion %',
+    'Home Team 4th Down Conversion %', 'Away Team 4th Down Conversion %',
     'Home Team 1st Downs', 'Away Team 1st Downs'
 ]]
 
@@ -65,8 +65,8 @@ history = model.fit(X_train, y_train, validation_split=0.1, epochs=250, batch_si
 test_loss, test_acc = model.evaluate(X_test, y_test, verbose=2)
 print(f'Test accuracy: {test_acc}')
 
-ARIvsSFO_test = np.array([[328,314.2,191.4,234.26,1.2,1.26,136.6,79.93,0.6,0.4,1.46,1.0,30.93,35.4,59.18,55.75,3.4,1.73,29.3,24.73,4.6,3.23,7,5.73,2,2.06,1.6,1.8,13.4,14.06,39.1,39.13,1.2,0.26,18.93,18.6]])
+# Averages from weeks 1-16 of the 2014 season for Arizona and San Francisco, using this to predict a matchup # Actual score was SFO 20 - ARI 17
+# ARIvsSFO_test = np.array([[328,314.2,191.4,234.26,1.2,1.26,136.6,79.93,0.6,0.4,1.46,1.0,30.93,35.4,59.18,55.75,3.4,1.73,29.3,24.73,4.6,3.23,7,5.73,2,2.06,1.6,1.8,13.4,14.06,39.1,39.13,1.2,0.26,18.93,18.6]])
 
-prediction = model.predict(ARIvsSFO_test)
-print(f"Probability that SFO beat ARI is: {prediction}")
-# Actual score was SFO 20 - ARI 17
+# prediction = model.predict(ARIvsSFO_test)
+# print(f"Probability that SFO beat ARI is: {prediction}")
