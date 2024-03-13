@@ -5,6 +5,12 @@ from sklearn.preprocessing import StandardScaler
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 
+# To run our code make sure you have sklearn, and tensorflow installed (as well as numpy and pandas) you can install these with the following commands
+# pip install numpy
+# pip install pandas
+# pip install tensorflow
+# pip install scikit-learn
+
 # Loading the Combined Team Data Set
 df = pd.read_csv('combined_team_data.csv') 
 

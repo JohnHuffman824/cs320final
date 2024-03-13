@@ -6,3 +6,5 @@ predictCombinedDataSet.py - This is our main executable file which builds our ne
 dataManipulationAndOldFiles - This folder is a collection of miscellaneous files we generated for a variety of needs along the way of this project
     This includes doing our data manipulation, testing of ideas and other general functions that were needed for this project to work.
     THIS FOLDER CAN LARGELY BE IGNORED
+
+To run our code, you can simply make sure you have predictCombinedDataSet.py and combined_team_data.csv in the same directory and then run the python file.
